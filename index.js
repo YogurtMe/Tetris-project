@@ -28,7 +28,11 @@ if(localStorage.getItem("diff") == null){
 }
 
 if(localStorage.getItem("crtl") == null){
-    localStorage.setItem("crtl", "control 1");
+    localStorage.setItem("crtl", "CONTROL 1");
+}
+
+if(localStorage.getItem("crtl") == "control 1"){
+    localStorage.setItem("crtl", "CONTROL 1");
 }
 
 let HS = localStorage.getItem("HS");
