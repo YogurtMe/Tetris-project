@@ -4,4 +4,4 @@ Halo, gw affan, dan ini adalah game pertama yang gw buat, iya, ini cuman remake 
 >semoga kedepannya gw bisa terus maju dan membuat karya yang 100% original :3
 
 ### Versi 1.0 (20/6/2025)
-x) rilis pertama
+* rilis pertama
