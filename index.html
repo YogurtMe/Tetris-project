@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="style.css"/>
+  <title>tetris</title>
+</head>
+<body>
+  <div class="uiCont" id="uiCont">
+    <!-- GAMESTART UI -->
+    <div class="gameStartUi" id="gameStartUi">
+      <div class="hightestScore noBorderB">
+        <div class="upperBar"><p>Best Score</p></div>
+        <p id="highSDom"></p>
+      </div>
+      <div class="btnParentGameStart">
+        <div class="uiBtn long" id="startGame" onclick="hide(gameStartUi); hide(uiCont); gameStart();"><p>Start Game</p></div>
+        <div class="uiBtn noBorderL settingBtn" onclick="show(settingUi);"></div>
+      </div>
+    </div>
+    <!-- SETTING UI -->
+    <div class="settingUi" id="settingUi">
+      <div class="btnParentSetting">
+        <div class="uiBtn long" onclick="toggle(crtlMore, diffMore)"><p>Control</p></div>
+        <div id="crtlMore" class="settingMore">
+          <div>
+            <p id="nowCrtl"></p>
+          </div>
+          <div>
+            <p class="select" onclick="changeCrtl(1); reloadPage();">Control 1</p>
+            <p class="select" onclick="changeCrtl(2); reloadPage();">Control 2</p>
+            <p class="select" onclick="changeCrtl(3); reloadPage();">Control 3</p>
+          </div>
+        </div>
+        <div class="uiBtn long" onclick="toggle(diffMore, crtlMore)"><p>Difficulty</p></div>
+        <div id="diffMore" class="settingMore">
+          <div>
+            <p id="nowDiff"></p>
+          </div>
+          <div>
+            <p class="select" onclick="setDiff('EASY'); reloadPage();">Easy</p>
+            <p class="select" onclick="setDiff('NORMAL'); reloadPage();">Normal</p>
+            <p class="select" onclick="setDiff('HARD'); reloadPage();">Hard</p>
+          </div>
+        </div>
+        <div class="uiBtn long" onclick="resetScore();"><p>Reset Score</p></div>
+        <div class="uiBtn long" onclick="reloadPage();"><p>Back</p></div>
+      </div>
+    </div>
+    <!-- HIGH SCORE UI -->
+    <div>
+      
+    </div>
+  </div>
+  <div class="gameCont" id="gameCont">
+    <div class="btnParentPause">
+      <div class="pause" onclick="pauseGame();"></div>
+    </div>
+    <div id="countDown">
+      <p id="cd">3</p>
+    </div>
+    <div class="scoreBoard">
+      <p id="score"></p>
+    </div>
+    <div class="display">
+      <div class="holdBlock" onclick="updateHb()" class="">
+        <div id="holdB"></div>
+      </div>
+      <canvas id="canvas"></canvas>
+      <div class="incomingBlock">
+        <div class="icMain">
+          <div id="ic1" class=""></div>
+        </div>
+        <div class="icMain">
+          <div id="ic2" class=""></div>
+        </div>
+        <div class="icMain">
+          <div id="ic3" class=""></div>
+        </div>
+      </div>
+    </div>
+    <div class="controller">
+      <div id="btn1" class="btn"></div>
+      <div id="btn2" class="btn"></div>
+      <div id="btn3" class="btn"></div>
+      <div id="btn4" class="btn"></div>
+    </div>
+  </div>
+   <div class="goPopup" id="go" onclick="reloadPage();">
+    <p>GAME OVER</p>
+    <p>tap to Quit</p>
+  </div>
+  <div class="pauseUi" id="pu">
+      <div class="btnParentPauseUi">
+        <div class="uiBtn long" onclick="resumeGame();"><p>Resume</p></div>
+        <div class="uiBtn long" onclick="reloadPage();"><p>Quit</p></div>
+      </div>
+   </div>
+ 
+  <script src="index.js"></script>
+</body>
+</html>

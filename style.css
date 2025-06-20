@@ -1,0 +1,444 @@
+@font-face{
+  font-family: "pixelFont";
+  src: url("easvhs.ttf") format("truetype");
+}
+
+
+body {
+  margin: 0px;
+  image-rendering: pixelated;
+  background-image: url(assets/bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+* {
+  color: white;
+  font-size: 5vw;
+  font-family: pixelFont;
+}
+
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+.gameCont {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255,255,255,0.5);
+  visibility: hidden;
+}
+
+.display {
+  display: flex;
+  margin: 0px auto;
+}
+
+.scoreBoard {
+  display: flex;
+  margin: 0px auto;
+  margin-top: 10vw;
+  height: 5vh;
+  width: 30vh;
+  background-color: black;
+  box-sizing: border-box;
+  border: 0.4vh solid white;
+  border-bottom: none;
+}
+
+.scoreBoard p {
+  margin: auto;
+  font-size: 3vh;
+}
+
+.controller {
+  margin: 2vh auto;
+  display: flex;
+}
+
+.btn {
+  height: 22vw;
+  width: 22vw;
+  text-align: center;
+  margin: 0.4vw;
+  background-color: black;
+  border: 0.4vh solid white;
+}
+
+.btn:active {
+  scale: 0.96;
+}
+
+#canvas {
+  image-rendering: pixelated;
+  height: 60vh;
+  width: 30vh;
+  box-sizing: border-box;
+  border: 0.4vh solid white;
+  background-color: black;
+}
+
+.goPopup {
+  display: flex;
+  visibility: hidden;
+  flex-direction: column;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.goPopup p {
+  margin: auto;
+  font-size: 5vh;
+  color: white;
+}
+
+.holdBlock {
+  display: flex;
+  height: 10vh;
+  width: 10vh;
+  background-color: black;
+  box-sizing: border-box;
+  border: 0.4vh solid white;
+  border-right: none;
+}
+
+.incomingBlock {
+  display: flex;
+  height: 30vh;
+  width: 10vh;
+  background-color: black;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 0.4vh solid white;
+  border-left: none;
+}
+
+.icMain {
+  margin: auto;
+}
+
+.I {
+  margin: auto;
+  height: 8vh;
+  width: 8vh;
+  image-rendering: pixelated;
+  background-image: url(assets/I.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.O {
+  margin: auto;
+  height: 5vh;
+  width: 5vh;
+  image-rendering: pixelated;
+  background-image: url(assets/O.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.T {
+  margin: auto;
+  height: 8vh;
+  width: 8vh;
+  image-rendering: pixelated;
+  background-image: url(assets/T.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.S {
+  margin: auto;
+  height: 8vh;
+  width: 8vh;
+  image-rendering: pixelated;
+  background-image: url(assets/S.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.Z {
+  margin: auto;
+  height: 8vh;
+  width: 8vh;
+  image-rendering: pixelated;
+  background-image: url(assets/Z.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.L {
+  margin: auto;
+  height: 8vh;
+  width: 8vh;
+  image-rendering: pixelated;
+  background-image: url(assets/L.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.J {
+  margin: auto;
+  height: 8vh;
+  width: 8vh;
+  image-rendering: pixelated;
+  background-image: url(assets/J.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.r {
+  image-rendering: pixelated;
+  background-image: url(assets/right.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.l {
+  image-rendering: pixelated;
+  background-image: url(assets/left.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.rot {
+  image-rendering: pixelated;
+  background-image: url(assets/rotate.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.d {
+  image-rendering: pixelated;
+  background-image: url(assets/drop.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.test1 {
+  image-rendering: pixelated;
+  height: 100px;
+  width: 100px;
+  border: 10vh solid black;
+  border-image: url(assets/border.png) 49% round;
+}
+
+/*############ UI CSS #############*/
+
+/*########## GAME START UI ########*/
+
+#countDown {
+  display: flex;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  visibility: hidden;
+  background-color: rgba(0,0,0,0.8);
+}
+
+#cd {
+  margin: auto;
+  font-size: 15vh;
+}
+
+.gameStartUi {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255,255,255,0.5);
+  visibility: visible;
+}
+
+.btnParentGameStart {
+  display: flex;
+  margin: 0px auto;
+  width: 40vh;
+  background-color: black;
+}
+
+.settingBtn {
+  image-rendering: pixelated;
+  background-image: url(assets/setting.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hightestScore {
+  display: flex;
+  flex-direction: column;
+  margin: 0vh auto;
+  margin-top: 15vh;
+  height: 25vh;
+  width: 40vh;
+  box-sizing: border-box;
+  border: 0.4vh solid black;
+}
+
+
+.hightestScore p {
+  color: black;
+  margin: auto;
+}
+
+.settingUi {
+  display: flex;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.8);
+  visibility: hidden;
+}
+
+.btnParentSetting {
+  width: 31vh;
+  margin: auto;
+  background-color: black;
+  border: 0.4vh solid white;
+}
+
+.pause {
+  position: absolute;
+  right: 0px;
+  height: 6vh;
+  width: 6vh;
+  background-color: black;
+  margin: 1vh;
+  image-rendering: pixelated;
+  background-image: url(assets/pause.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0.4vh solid white;
+}
+
+.pause:active {
+  scale: 0.98;
+}
+
+.pauseUi {
+  position: absolute;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.8);
+  visibility: hidden;
+}
+
+.btnParentPauseUi {
+  width: 31vh;
+  margin: auto;
+  background-color: black;
+  border: 0.4vh solid white;
+}
+
+.settingMore {
+  display: none;
+  flex-direction: column;
+  height: 20vh;
+  width: 31vh;
+  background-color: white;
+}
+
+.settingMore div {
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+  width: 100%;
+}
+
+.settingMore div p{
+  color: black;
+  margin: 1vh auto;
+  text-decoration: underline;
+}
+
+.settingMore div .select{
+  text-decoration: none;
+}
+
+.settingMore div .select:active{
+  scale: 0.9;
+}
+
+/*######### CUSTOM FRAMEWORK ###########*/
+.uiCont {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  visibility: visible;
+}
+
+.uiBtn {
+  display: flex;
+  height: 10vh;
+  width: 10vh;
+  border: 0.4vh solid black;
+  background-color: black;
+}
+
+.uiBtn:active {
+  scale: 0.9;
+}
+
+.uiBtn p {
+  margin: auto;
+  font-size: 4vh;
+}
+
+.long {
+  width: 30vh;
+}
+
+.noBorderL {
+  border-left: none;
+}
+
+.noBorderR {
+  border-right: none;
+}
+
+.noBorderT {
+  border-top: none;
+}
+
+.noBorderB {
+  border-bottom: none;
+}
+
+.upperBar {
+  display: flex;
+  height: 10vh;
+  background-color: black;
+}
+
+.upperBar p {
+  color: white;
+  margin: auto;
+}
